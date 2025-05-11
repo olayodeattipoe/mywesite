@@ -51,10 +51,31 @@ export default function LandingPage() {
           </div>
           <div className="flex flex-1 items-center justify-end space-x-4">
             <nav className="flex items-center space-x-2">
-              <Button variant="ghost" size="sm">
-                Log in
-              </Button>
-              <Button size="sm">Get Started</Button>
+              <div className="relative group">
+                <Button variant="ghost" size="sm">
+                  Contact Us
+                </Button>
+                <div className="absolute right-0 mt-2 w-72 p-6 bg-white rounded-xl shadow-2xl border border-brand-orange/20 hidden group-hover:block z-50 transform transition-all duration-200">
+                  <div className="absolute -top-2 right-4 w-4 h-4 bg-white transform rotate-45 border-t border-l border-brand-orange/20"></div>
+                  <div className="space-y-4">
+                    <p className="font-bold text-lg text-brand-orange">Get in touch with us</p>
+                    <div className="space-y-3">
+                      <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                        <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0551310230</a>
+                      </div>
+                      <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                        <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <a href="mailto:mensahattipoesolomonolayode@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">mensahattipoesolomonolayode@gmail.com</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </nav>
           </div>
         </div>
@@ -302,7 +323,7 @@ export default function LandingPage() {
                 See what our customers have to say about how Pasara POS has transformed their businesses.
               </p>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
+            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-1">
               <div className="flex flex-col justify-between rounded-2xl border p-6 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer bg-white hover:border-brand-orange">
                 <div className="space-y-4">
                   <div className="flex gap-1">
@@ -318,72 +339,16 @@ export default function LandingPage() {
                     ))}
                   </div>
                   <p className="text-muted-foreground">
-                    "Pasara POS has completely transformed how we manage our retail store. The inventory tracking alone has saved us countless hours and prevented stockouts."
+                    "Pasara POS has revolutionized our customer service at Calaash. The queue lines have been significantly reduced, and our customers are much happier with the faster service. The system has made our operations much more efficient."
                   </p>
                 </div>
                 <div className="mt-6 flex items-center gap-4">
                   <div className="rounded-full bg-orange-100 p-2 text-brand-orange">
-                    <span className="text-sm font-semibold">SJ</span>
+                    <span className="text-sm font-semibold">CL</span>
                   </div>
                   <div>
-                    <p className="font-semibold">Sarah Johnson</p>
-                    <p className="text-sm text-muted-foreground">Retail Store Owner</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-between rounded-2xl border p-6 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer bg-white hover:border-brand-orange">
-                <div className="space-y-4">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="h-5 w-5 fill-brand-orange transform transition-transform duration-200 hover:scale-110"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground">
-                    "The integrated online store feature has allowed us to expand our business beyond our physical location. Sales have increased by 40% since implementation."
-                  </p>
-                </div>
-                <div className="mt-6 flex items-center gap-4">
-                  <div className="rounded-full bg-orange-100 p-2 text-brand-orange">
-                    <span className="text-sm font-semibold">MR</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Michael Rodriguez</p>
-                    <p className="text-sm text-muted-foreground">Restaurant Owner</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-between rounded-2xl border p-6 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 cursor-pointer bg-white hover:border-brand-orange">
-                <div className="space-y-4">
-                  <div className="flex gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="h-5 w-5 fill-brand-orange transform transition-transform duration-200 hover:scale-110"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-muted-foreground">
-                    "The analytics and reporting features have given us insights we never had before. We can now make data-driven decisions that have improved our profitability."
-                  </p>
-                </div>
-                <div className="mt-6 flex items-center gap-4">
-                  <div className="rounded-full bg-orange-100 p-2 text-brand-orange">
-                    <span className="text-sm font-semibold">JL</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold">Jennifer Lee</p>
-                    <p className="text-sm text-muted-foreground">Boutique Manager</p>
+                    <p className="font-semibold">Calaash Restaurant</p>
+                    <p className="text-sm text-muted-foreground">Restaurant Chain</p>
                   </div>
                 </div>
               </div>
@@ -405,7 +370,7 @@ export default function LandingPage() {
                   <h3 className="text-2xl font-bold group-hover:text-brand-orange transition-colors duration-200">Starter</h3>
                   <p className="mt-2 text-muted-foreground">Perfect for small businesses just getting started</p>
                   <div className="mt-4 flex items-baseline">
-                    <span className="text-4xl font-bold">$49</span>
+                    <span className="text-4xl font-bold">GHS 500</span>
                     <span className="ml-1 text-muted-foreground">/month</span>
                   </div>
                   <ul className="mt-8 space-y-4">
@@ -433,9 +398,29 @@ export default function LandingPage() {
                 </div>
                 <Button 
                   size="lg" 
-                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg"
+                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg group relative"
                 >
-                  Get Started
+                  Contact Sales
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-6 bg-white rounded-xl shadow-2xl border border-brand-orange/20 hidden group-hover:block z-50">
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 border-b border-r border-brand-orange/20"></div>
+                    <div className="space-y-4">
+                      <p className="font-bold text-lg text-brand-orange">Get in touch with us</p>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                          <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0551310230</a>
+                        </div>
+                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                          <a href="mailto:mensahattipoesolomonolayode@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">mensahattipoesolomonolayode@gmail.com</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </Button>
               </div>
               <div className="relative flex flex-col justify-between rounded-2xl bg-white p-8 shadow-lg hover:shadow-lg transition-all duration-200 hover:-translate-y-1 group">
@@ -446,7 +431,7 @@ export default function LandingPage() {
                   <h3 className="text-2xl font-bold group-hover:text-brand-orange transition-colors duration-200">Professional</h3>
                   <p className="mt-2 text-muted-foreground">Ideal for growing businesses with multiple needs</p>
                   <div className="mt-4 flex items-baseline">
-                    <span className="text-4xl font-bold">$99</span>
+                    <span className="text-4xl font-bold">GHS 1,000</span>
                     <span className="ml-1 text-muted-foreground">/month</span>
                   </div>
                   <ul className="mt-8 space-y-4">
@@ -474,9 +459,29 @@ export default function LandingPage() {
                 </div>
                 <Button 
                   size="lg" 
-                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg"
+                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg group relative"
                 >
-                  Get Started
+                  Contact Sales
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-6 bg-white rounded-xl shadow-2xl border border-brand-orange/20 hidden group-hover:block z-50">
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 border-b border-r border-brand-orange/20"></div>
+                    <div className="space-y-4">
+                      <p className="font-bold text-lg text-brand-orange">Get in touch with us</p>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                          <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0551310230</a>
+                        </div>
+                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                          <a href="mailto:mensahattipoesolomonolayode@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">mensahattipoesolomonolayode@gmail.com</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </Button>
               </div>
               <div className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 group">
@@ -484,7 +489,7 @@ export default function LandingPage() {
                   <h3 className="text-2xl font-bold group-hover:text-brand-orange transition-colors duration-200">Enterprise</h3>
                   <p className="mt-2 text-muted-foreground">For large businesses with complex requirements</p>
                   <div className="mt-4 flex items-baseline">
-                    <span className="text-4xl font-bold">$199</span>
+                    <span className="text-4xl font-bold">GHS 2,000</span>
                     <span className="ml-1 text-muted-foreground">/month</span>
                   </div>
                   <ul className="mt-8 space-y-4">
@@ -512,9 +517,29 @@ export default function LandingPage() {
                 </div>
                 <Button 
                   size="lg" 
-                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg"
+                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg group relative"
                 >
-                  Get Started
+                  Contact Sales
+                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-6 bg-white rounded-xl shadow-2xl border border-brand-orange/20 hidden group-hover:block z-50">
+                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 border-b border-r border-brand-orange/20"></div>
+                    <div className="space-y-4">
+                      <p className="font-bold text-lg text-brand-orange">Get in touch with us</p>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                          <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0551310230</a>
+                        </div>
+                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                          <a href="mailto:mensahattipoesolomonolayode@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">mensahattipoesolomonolayode@gmail.com</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </Button>
               </div>
             </div>
@@ -561,7 +586,7 @@ export default function LandingPage() {
                 <span className="inline-block font-bold">Pasmen Pasara</span>
               </Link>
               <p className="text-muted-foreground">
-                Empowering businesses with innovative software solutions since 2010.
+                Empowering businesses with innovative software solutions since 2025.
               </p>
               <div className="flex gap-4">
                 <Link href="#" className="text-muted-foreground hover:text-foreground">
