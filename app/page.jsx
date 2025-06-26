@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "../components/ui/button"
@@ -11,15 +12,18 @@ import {
   Package,
   ShoppingCart,
 } from "lucide-react"
+import { useState } from "react"
 
 export default function LandingPage() {
+  const [isVideoOpen, setIsVideoOpen] = useState(false)
+
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <div className="flex gap-6 md:gap-10">
             <Link href="/" className="flex items-center space-x-2">
-              <Image src="/images/logos/PasaraLogoV1.jpg" alt="Pasara Logo" width={36} height={36} className="h-9 w-9" />
+              <Image src="/images/logos/PasaraLogoV1.jpg" alt="Pasara Logo" width={36} height={36} className="h-9 w-9" unoptimized />
               <span className="inline-block font-bold">Pasmen Pasara</span>
             </Link>
             <nav className="hidden gap-6 md:flex">
@@ -64,13 +68,13 @@ export default function LandingPage() {
                         <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0551310230</a>
+                        <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0593990166</a>
                       </div>
                       <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
                         <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <a href="mailto:mensahattipoesolomonolayode@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">mensahattipoesolomonolayode@gmail.com</a>
+                        <a href="mailto:pasmenpasara@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">pasmenpasara@gmail.com</a>
                       </div>
                     </div>
                   </div>
@@ -81,7 +85,7 @@ export default function LandingPage() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-white">
+        <section className="w-full py-6 md:py-12 lg:py-20 xl:py-32 bg-white">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
@@ -97,22 +101,23 @@ export default function LandingPage() {
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   <Button 
                     size="lg" 
-                    className="bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg"
+                    className="bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg" 
+                    asChild
                   >
-                    Get Started
-                    <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                    <a href="#ready">Get Started</a>
                   </Button>
                   <Button
                     size="lg"
                     variant="outline"
                     className="border-brand-orange text-brand-orange hover:bg-brand-orange/10 transform transition-all duration-200 hover:scale-105 active:scale-95"
+                    asChild
                   >
-                    Book a Demo
+                    <a href="#ready">Book a Demo</a>
                   </Button>
                 </div>
               </div>
               <div className="flex items-center justify-center">
-                <div className="relative h-[350px] w-full overflow-hidden rounded-xl bg-white shadow-2xl md:h-[450px]">
+                <div className="relative h-[350px] w-full overflow-hidden rounded-xl bg-white shadow-2xl md:h-[450px] flex flex-col items-center justify-center">
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Image
                       src="/images/logos/PasaraLogoV2.jpg"
@@ -120,13 +125,33 @@ export default function LandingPage() {
                       height={100}
                       alt="Pasara Logo"
                       className="w-3/4 max-w-[300px] opacity-10"
+                      unoptimized
                     />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-transparent">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/80 to-transparent z-10 flex flex-col items-center justify-center">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
                       <h3 className="text-xl font-bold text-gray-800 mb-4">Powerful POS System</h3>
-                      <p className="text-gray-600 mb-6">Manage your business with ease</p>
-                      <Button className="bg-brand-orange hover:bg-brand-dark">Watch Demo</Button>
+                      <p className="text-gray-600 mb-1">Manage your business with ease</p>
+                      <p className="mb-3 text-base text-brand-orange animate-pulse">Click the thumbnail below to watch our product demo!</p>
+                      <div className="flex flex-col items-center gap-3">
+                        <div
+                          className="relative cursor-pointer group mb-2"
+                          onClick={() => setIsVideoOpen(true)}
+                          style={{ display: 'inline-block' }}
+                        >
+                          <img
+                            src="/images/logos/PasaraLogoV2.jpg"
+                            alt="Watch Demo Thumbnail"
+                            className="rounded-lg shadow-lg w-full max-w-[350px] md:max-w-[400px] border-2 border-brand-orange group-hover:brightness-90 transition duration-200"
+                          />
+                          <span className="absolute inset-0 flex items-center justify-center">
+                            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className="drop-shadow-lg">
+                              <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.7)" />
+                              <polygon points="26,20 48,32 26,44" fill="#F97316" />
+                            </svg>
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -134,6 +159,29 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
+
+        {isVideoOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
+            <div className="relative bg-white rounded-xl shadow-2xl p-2 w-[90vw] max-w-2xl flex flex-col items-center">
+              <button
+                className="absolute top-2 right-2 text-gray-500 hover:text-brand-orange text-2xl font-bold z-10"
+                onClick={() => setIsVideoOpen(false)}
+                aria-label="Close"
+              >
+                &times;
+              </button>
+              <video
+                src="/videos/Pasara_POS_Demo_Final.mp4"
+                controls
+                autoPlay
+                className="rounded-lg shadow-lg w-full max-h-[70vh] border border-brand-orange bg-black"
+                poster="/images/logos/PasaraLogoV2.jpg"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        )}
 
         <section className="w-full py-12 md:py-24 lg:py-32 bg-white" id="features">
           <div className="container px-4 md:px-6">
@@ -270,6 +318,7 @@ export default function LandingPage() {
                         width={24}
                         height={24}
                         className="h-6 w-6"
+                        unoptimized
                       />
                       <span className="font-semibold">Pasara POS Dashboard</span>
                       <span className="text-sm text-muted-foreground">v2.0</span>
@@ -339,7 +388,7 @@ export default function LandingPage() {
                     ))}
                   </div>
                   <p className="text-muted-foreground">
-                    "Pasara POS has revolutionized our customer service at Calaash. The queue lines have been significantly reduced, and our customers are much happier with the faster service. The system has made our operations much more efficient."
+                    "Pasara POS has revolutionized our customer service at Calabash. The queue lines have been significantly reduced, and our customers are much happier with the faster service. The system has made our operations much more efficient, hence why its used in all our branches."
                   </p>
                 </div>
                 <div className="mt-6 flex items-center gap-4">
@@ -347,7 +396,7 @@ export default function LandingPage() {
                     <span className="text-sm font-semibold">CL</span>
                   </div>
                   <div>
-                    <p className="font-semibold">Calaash Restaurant</p>
+                    <p className="font-semibold">Calabash Restaurant</p>
                     <p className="text-sm text-muted-foreground">Restaurant Chain</p>
                   </div>
                 </div>
@@ -361,192 +410,66 @@ export default function LandingPage() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Simple, Transparent Pricing</h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Choose the plan that's right for your business. All plans include core POS features.
+                One plan. All features. No surprises.
               </p>
             </div>
-            <div className="mx-auto grid max-w-5xl gap-6 py-12 lg:grid-cols-3">
-              <div className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 group">
+            <div className="mx-auto grid max-w-4xl gap-8 py-12 md:grid-cols-2">
+              {/* Subscription Card */}
+              <div className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1 group border border-brand-orange">
                 <div>
-                  <h3 className="text-2xl font-bold group-hover:text-brand-orange transition-colors duration-200">Starter</h3>
-                  <p className="mt-2 text-muted-foreground">Perfect for small businesses just getting started</p>
-                  <div className="mt-4 flex items-baseline">
-                    <span className="text-4xl font-bold">GHS 500</span>
-                    <span className="ml-1 text-muted-foreground">/month</span>
+                  <h3 className="text-2xl font-bold text-brand-orange mb-2">Monthly Subscription</h3>
+                  <div className="flex items-baseline mb-4">
+                    <span className="text-4xl font-bold">GHS 1,200</span>
+                    <span className="ml-2 text-muted-foreground text-lg">/month</span>
                   </div>
-                  <ul className="mt-8 space-y-4">
+                  <ul className="space-y-3 mb-6 text-left">
                     <li className="flex items-center gap-2">
                       <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Basic POS functionality</span>
+                      <span>No hidden fees</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Inventory management</span>
+                      <span>No setup charges</span>
                     </li>
                     <li className="flex items-center gap-2">
                       <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Up to 500 products</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Basic reporting</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Email support</span>
+                      <span>Full access to features & support</span>
                     </li>
                   </ul>
                 </div>
-                <Button 
-                  size="lg" 
-                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg group relative"
-                >
-                  Contact Sales
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-6 bg-white rounded-xl shadow-2xl border border-brand-orange/20 hidden group-hover:block z-50">
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 border-b border-r border-brand-orange/20"></div>
-                    <div className="space-y-4">
-                      <p className="font-bold text-lg text-brand-orange">Get in touch with us</p>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
-                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                          </svg>
-                          <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0551310230</a>
-                        </div>
-                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
-                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                          <a href="mailto:mensahattipoesolomonolayode@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">mensahattipoesolomonolayode@gmail.com</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <Button size="lg" className="w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg" asChild>
+                  <a href="#ready">Get Started</a>
                 </Button>
               </div>
-              <div className="relative flex flex-col justify-between rounded-2xl bg-white p-8 shadow-lg hover:shadow-lg transition-all duration-200 hover:-translate-y-1 group">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-brand-orange px-3 py-1 text-sm font-medium text-white">
-                  Most Popular
-                </div>
+              {/* Referral Program Card */}
+              <div className="flex flex-col justify-between rounded-2xl bg-orange-50 p-8 shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1 group border border-brand-orange">
                 <div>
-                  <h3 className="text-2xl font-bold group-hover:text-brand-orange transition-colors duration-200">Professional</h3>
-                  <p className="mt-2 text-muted-foreground">Ideal for growing businesses with multiple needs</p>
-                  <div className="mt-4 flex items-baseline">
-                    <span className="text-4xl font-bold">GHS 1,000</span>
-                    <span className="ml-1 text-muted-foreground">/month</span>
-                  </div>
-                  <ul className="mt-8 space-y-4">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Everything in Starter</span>
+                  <h3 className="text-2xl font-bold text-brand-orange mb-2">Referral Program</h3>
+                  <ul className="space-y-4 text-left">
+                    <li>
+                      <span className="font-semibold">Refer Businesses</span><br/>
+                      <span className="text-muted-foreground">Share Pasmen Pasara POS with other restaurants, cafes, or food businesses in your network.</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Online store integration</span>
+                    <li>
+                      <span className="font-semibold">They Subscribe</span><br/>
+                      <span className="text-muted-foreground">Once your referred business subscribes to any of our plans, the bonus automatically activates.</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Up to 2,000 products</span>
+                    <li>
+                      <span className="font-semibold">Get Free Months</span><br/>
+                      <span className="text-muted-foreground">You will receive one month free on your Pasmen Pasara POS subscription as a thank you.</span>
                     </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Advanced analytics</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Priority support</span>
+                    <li>
+                      <span className="font-semibold">Unlimited Savings</span><br/>
+                      <span className="text-muted-foreground">There's no limit to how much you can save! The more you refer, the more free months you earn.</span>
                     </li>
                   </ul>
                 </div>
-                <Button 
-                  size="lg" 
-                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg group relative"
-                >
-                  Contact Sales
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-6 bg-white rounded-xl shadow-2xl border border-brand-orange/20 hidden group-hover:block z-50">
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 border-b border-r border-brand-orange/20"></div>
-                    <div className="space-y-4">
-                      <p className="font-bold text-lg text-brand-orange">Get in touch with us</p>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
-                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                          </svg>
-                          <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0551310230</a>
-                        </div>
-                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
-                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                          <a href="mailto:mensahattipoesolomonolayode@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">mensahattipoesolomonolayode@gmail.com</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Button>
-              </div>
-              <div className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm hover:shadow-lg transition-all duration-200 hover:-translate-y-1 group">
-                <div>
-                  <h3 className="text-2xl font-bold group-hover:text-brand-orange transition-colors duration-200">Enterprise</h3>
-                  <p className="mt-2 text-muted-foreground">For large businesses with complex requirements</p>
-                  <div className="mt-4 flex items-baseline">
-                    <span className="text-4xl font-bold">GHS 2,000</span>
-                    <span className="ml-1 text-muted-foreground">/month</span>
-                  </div>
-                  <ul className="mt-8 space-y-4">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Everything in Professional</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Multi-location support</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Unlimited products</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Custom reporting</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle className="h-5 w-5 text-brand-orange" />
-                      <span>Dedicated account manager</span>
-                    </li>
-                  </ul>
-                </div>
-                <Button 
-                  size="lg" 
-                  className="mt-8 w-full bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg group relative"
-                >
-                  Contact Sales
-                  <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 w-72 p-6 bg-white rounded-xl shadow-2xl border border-brand-orange/20 hidden group-hover:block z-50">
-                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 border-b border-r border-brand-orange/20"></div>
-                    <div className="space-y-4">
-                      <p className="font-bold text-lg text-brand-orange">Get in touch with us</p>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
-                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                          </svg>
-                          <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0551310230</a>
-                        </div>
-                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
-                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                          </svg>
-                          <a href="mailto:mensahattipoesolomonolayode@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">mensahattipoesolomonolayode@gmail.com</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </Button>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-white">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-white" id="ready">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -558,20 +481,31 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button 
-                  size="lg" 
-                  className="bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg"
-                >
-                  Get Started Today
-                  <ChevronRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-brand-orange text-brand-orange hover:bg-brand-orange/10 transform transition-all duration-200 hover:scale-105 active:scale-95"
-                >
-                  Contact Sales
-                </Button>
+                <div className="relative group">
+                  <Button size="lg" className="bg-brand-orange hover:bg-brand-dark transform transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg">
+                    Contact Us Now
+                  </Button>
+                  <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-72 p-6 bg-white rounded-xl shadow-2xl border border-brand-orange/20 hidden group-hover:block z-50 transform transition-all duration-200">
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-white transform rotate-45 border-t border-l border-brand-orange/20"></div>
+                    <div className="space-y-4">
+                      <p className="font-bold text-lg text-brand-orange">Get in touch with us</p>
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                          </svg>
+                          <a href="tel:+233551310230" className="text-brand-orange hover:text-brand-dark font-medium">0593990166</a>
+                        </div>
+                        <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-orange-50 transition-colors duration-200">
+                          <svg className="h-5 w-5 text-brand-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                          </svg>
+                          <a href="mailto:pasmenpasara@gmail.com" className="text-brand-orange hover:text-brand-dark font-medium">pasmenpasara@gmail.com</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -582,32 +516,30 @@ export default function LandingPage() {
           <div className="grid gap-8 lg:grid-cols-4">
             <div className="flex flex-col gap-4">
               <Link href="/" className="flex items-center space-x-2">
-                <Image src="/images/logos/PasaraLogoV1.jpg" alt="Pasara Logo" width={36} height={36} className="h-9 w-9" />
+                <Image src="/images/logos/PasaraLogoV1.jpg" alt="Pasara Logo" width={36} height={36} className="h-9 w-9" unoptimized />
                 <span className="inline-block font-bold">Pasmen Pasara</span>
               </Link>
               <p className="text-muted-foreground">
                 Empowering businesses with innovative software solutions since 2025.
               </p>
               <div className="flex gap-4">
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="https://wa.me/233593990166" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-green-500" aria-label="WhatsApp">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    <path d="M20.52 3.48A12.07 12.07 0 0012 0C5.37 0 0 5.37 0 12a11.93 11.93 0 001.64 6.06L0 24l6.31-1.65A12.07 12.07 0 0012 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 22a9.93 9.93 0 01-5.09-1.39l-.36-.21-3.75.98.99-3.65-.23-.37A9.93 9.93 0 012 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.6c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.62-.47-.16-.01-.36-.01-.56-.01-.19 0-.5.07-.76.34-.26.27-1 1-.97 2.43.03 1.43 1.04 2.81 1.19 3.01.15.2 2.05 3.13 5.01 4.27.7.24 1.25.38 1.68.49.71.18 1.36.15 1.87.09.57-.07 1.75-.72 2-1.41.25-.69.25-1.28.18-1.41-.07-.13-.25-.2-.53-.34z"/>
                   </svg>
+                  <span className="sr-only">WhatsApp: 0593990166</span>
                 </Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="mailto:pasmenpasara@gmail.com" className="text-muted-foreground hover:text-red-500" aria-label="Email">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zm0 12H4V8.99l8 6.99 8-6.99V18z"/>
                   </svg>
+                  <span className="sr-only">Email: pasmenpasara@gmail.com</span>
                 </Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
+                <Link href="https://www.linkedin.com/company/pasmen-pasara" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-blue-700" aria-label="LinkedIn">
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z" />
+                    <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.97 0-1.75-.79-1.75-1.75s.78-1.75 1.75-1.75 1.75.79 1.75 1.75-.78 1.75-1.75 1.75zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.75 1.38-1.54 2.84-1.54 3.04 0 3.6 2 3.6 4.59v4.72z"/>
                   </svg>
-                </Link>
-                <Link href="#" className="text-muted-foreground hover:text-foreground">
-                  <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                  </svg>
+                  <span className="sr-only">LinkedIn</span>
                 </Link>
               </div>
             </div>

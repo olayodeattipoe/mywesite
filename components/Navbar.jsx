@@ -22,6 +22,7 @@ const Navbar = () => {
                   fill
                   className="object-cover"
                   priority
+                  unoptimized
                 />
               </div>
               <div className="relative h-8 w-32 ml-3 hidden sm:block">
@@ -31,6 +32,7 @@ const Navbar = () => {
                   fill
                   className="object-contain"
                   priority
+                  unoptimized
                 />
               </div>
             </Link>
